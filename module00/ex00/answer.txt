@@ -1,3 +1,4 @@
+conda list
 pip list
 pip show numpy
 # pip search is deprecated or use https://pypi.org/ or https://pypi.org/project/pip-search/
