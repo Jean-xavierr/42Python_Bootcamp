@@ -1,7 +1,7 @@
 import string
 
 
-def text_analyzer(sentences: str = "", *argv) -> None:
+def text_analyzer(sentences: str = None, *argv) -> None:
     """This function counts the number of upper characters, lower characters,
 punctuation and spaces in a given text."""
 
@@ -11,11 +11,11 @@ punctuation and spaces in a given text."""
     count_punctuation_marks: int = 0
     count_space: int = 0
 
-    if not sentences:
-        sentences = input("What is the text to analyse?\n")
-    elif len(argv) > 0:
+    if len(argv) > 0 or sentences == "":
         print("Error")
         return
+    elif not sentences:
+        sentences = input("What is the text to analyse?\n")
     for letter in sentences:
         if letter.isdecimal():
             pass
