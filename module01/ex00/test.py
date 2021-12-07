@@ -2,20 +2,25 @@ from book import Book
 from recipe import Recipe
 
 
-#error recipe
-cooki_error = Recipe("cooki", 0, 10, ["dough", "sugar", "love"], "deliciousness incarnate", "dessert")
-cooki_error2 = Recipe("cooki", 1.5, 10, ["dough", "sugar", "love"], "deliciousness incarnate", "dessert")
+# error recipe
+cooki_error = Recipe("cooki", 0, 10, ["dough", "sugar", "love"],
+                     "deliciousness incarnate", "dessert")
+cooki_error2 = Recipe("cooki", 1.5, 10, ["dough", "sugar", "love"],
+                      "deliciousness incarnate", "dessert")
 cooki_error3 = Recipe("cooki", 1, 10, [], "deliciousness incarnate", "dessert")
 
-#no error
-Recipe("cooki", 1, 10, ["dough", "sugar", "love"], "deliciousness incarnate", "dessert")
+# no error
+Recipe("cooki", 1, 10, ["dough", "sugar", "love"],
+       "deliciousness incarnate", "dessert")
 print("Congratulations you finally made sime delicous cookies")
 
 
-# recipe = Recipe('Icecream', '4', '60', ['milk', 'sugar', 'berry'], "", "dessert")
+# recipe = Recipe('Icecream', '4', '60', ['milk', 'sugar', 'berry'],
+#                 "", "dessert")
 # # print(recipe)
 
-# recipe2 = Recipe('salad', '4', '60', ['milk', 'sugar', 'berry'], "", "dessert")
+# recipe2 = Recipe('salad', '4', '60', ['milk', 'sugar', 'berry'],
+#                  "", "dessert")
 # # print(recipe)
 
 print()
@@ -25,9 +30,10 @@ print(b.creation_date)
 print(b.last_update)
 # should be the same as the creation date or None
 
-#------------------------------
+# ------------------------------
 
-crumble = Recipe("Crumble", 1, 25, ["apples", "flour", "sugar"], "delicious", "dessert")
+crumble = Recipe("Crumble", 1, 25, ["apples", "flour", "sugar"],
+                 "delicious", "dessert")
 b.add_recipe(crumble)
 print(b.last_update)
 
