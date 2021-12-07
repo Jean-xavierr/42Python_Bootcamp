@@ -1,5 +1,6 @@
 from book import Book
 from recipe import Recipe
+from time import sleep
 
 
 # error recipe
@@ -31,7 +32,7 @@ print(b.last_update)
 # should be the same as the creation date or None
 
 # ------------------------------
-
+sleep(2)
 crumble = Recipe("Crumble", 1, 25, ["apples", "flour", "sugar"],
                  "delicious", "dessert")
 b.add_recipe(crumble)

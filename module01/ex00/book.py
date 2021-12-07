@@ -5,7 +5,7 @@ from recipe import Recipe
 class Book:
     def __init__(self, name: str) -> None:
         self.name: str = name
-        self.creation_date = datetime.now()
+        self.creation_date = datetime.now().ctime()
         self.last_update = self.creation_date
         self.recipes_list = {'starter': [],
                              'lunch': [],
@@ -35,4 +35,4 @@ class Book:
             print('Error: send an instance of Recipe.')
             return
         self.recipes_list[recipe.recipe_type].append(recipe)
-        self.last_update = datetime.now()
+        self.last_update = datetime.now().ctime()
