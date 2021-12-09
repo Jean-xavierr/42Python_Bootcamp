@@ -1,0 +1,36 @@
+#!/usr/bin/env zsh
+
+function set_conda() {
+    OS=$(echo $OSTYPE | grep -iq 'darwin' && echo "MacOSX" || echo "Linux")
+    SCRIPT="Miniconda3-latest-${OS}-x86_64.sh"
+    DL_LINK="https://repo.anaconda.com/miniconda/${SCRIPT}"
+    INSTALL_PATH="/goinfre/$(whoami)"
+    SCRIPT_PATH="${HOME}"
+    MINICONDA_PATH="${INSTALL_PATH}/miniconda3/bin"
+    REQUIREMENTS=(jupyter numpy pandas matplotlib scikit-learn)
+    SHELLRC_LINE="export PATH=$MINICONDA_PATH:\${PATH}"
+    SHELLRC_FILE="~/.zshrc"
+
+    if which python | grep -q ${MINICONDA_PATH}; then
+        echo "Good python version :)"
+        return 0
+    fi
+    # Wrong version of Python
+    cd ${SCRIPT_PATH}
+    if [ ! -f $SCRIPT ]; then
+        curl -LO $DL_LINK
+    fi
+    if [ ! -d $MINICONDA_PATH ]; then
+        sh ${SCRIPT} -b -p "${INSTALL_PATH}/miniconda3"
+    fi
+    if grep -q "^${SHELLRC_LINE}" ${SHELLRC_FILE}; then
+        echo "export already in ${SHELLRC_FILE}"
+    else
+        echo "Adding export to ${SHELLRC_FILE} ..."
+        echo "${SHELLRC_LINE}" >> ${SHELLRC_FILE}
+    fi
+    source ${SHELLRC_FILE}
+    conda install -y ${REQUIREMENTS}
+}
+set_conda
+zsh
